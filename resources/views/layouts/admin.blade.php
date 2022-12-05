@@ -10,8 +10,7 @@
     <title>@yield('sub-title') | {{ trans('panel.site_title') }}</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="https://n7.nextpng.com/sticker-png/649/178/sticker-png-cartoon-blog-graphics-red-j-hat-orange-copyright-cartoon.png"/>
-   
+    <link rel="icon" type="image/png" href="https://techlogica.com/img/purchase,sales,inventory,accounts.png">
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
     <!-- css -->

@@ -9,8 +9,8 @@
   <title>SIGN IN | {{ trans('panel.site_title') }}</title>
 
   <!-- Favicon -->
-  <link rel="icon" href="https://n7.nextpng.com/sticker-png/649/178/sticker-png-cartoon-blog-graphics-red-j-hat-orange-copyright-cartoon.png"/>
-
+  <link rel="icon" type="image/png" href="https://techlogica.com/img/purchase,sales,inventory,accounts.png">
+    
   <!-- Fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
   <link href="{{ asset('/assets/vendor/nucleo/css/nucleo.css') }}" rel="stylesheet" />
@@ -32,7 +32,7 @@
     <div class="container">
       <a class="navbar-brand" href="dashboard.html">
         <!-- <img src="../assets/img/brand/white.png"> -->
-       <h2 class="text-white">JEWEL & NICKEL STORE</h2>
+       <h2 class="text-white">{{ trans('panel.site_title') }}</h2>
       </a>
      
     </div>
@@ -107,7 +107,7 @@
       <div class="row align-items-center justify-content-xl-between">
         <div class="col-xl-6">
           <div class="copyright text-center text-xl-left text-muted">
-            &copy; 2021 <a href="https://supsofttech.com/" class="font-weight-bold ml-1" target="_blank">Sup-Soft</a>
+            &copy; 2023 <a href="/" class="font-weight-bold ml-1" target="_blank">{{ trans('panel.site_title') }}</a>
           </div>
         </div>
        

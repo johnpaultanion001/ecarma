@@ -19,37 +19,7 @@ class DatabaseSeeder extends Seeder
             PermissionRoleTableSeeder::class,
             UserSeeder::class,
             RoleUserTableSeeder::class,
-            CategorySeeder::class,
-            SupplierSeeder::class,
-            StatusReturnSeeder::class,
-            SizeSeeder::class,
-            OrderNumberSeeder::class,
-
-            //Sales Invoice
-            // SalesInvoiceSeeder::class,
-            // SalesSeeder::class,
-           
-
-            // Receiving Goods
-            UCSSeeder::class,
-            ReceivingGoodSeeder::class,
-            SalesInventorySeeder::class,
-            ReceivingProductSeeder::class,
-            LocationProductSeeder::class,
-
-            //Return
-            EmptyBottlesInventorySeeder::class,
-            //ReceiveReturnSeeder::class,
-            // SalesReturnSeeder::class,
-
-
-            CustomerSeeder::class,
-            LocationSeeder::class,
-            PriceTypeSeeder::class,
             
-            
-            AssignDeliverSeeder::class,
-            PalletSeeder::class,
             
         ]);
     }

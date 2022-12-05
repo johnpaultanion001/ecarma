@@ -89,12 +89,8 @@ class DashboardController extends Controller
                             
 
       $profit_today        =  $sales->sum->profit;
-      $discounted_today    =  $sales->sum->discounted;
-      $profit_today        =  $profit_today - $discounted_today;
 
       $profit_monthly      =  $profitmonthly->sum->profit;
-      $discounted_monthly  =  $profitmonthly->sum->discounted;
-      $profit_monthly      =  $profit_monthly - $discounted_monthly;
 
 
       return view('admin.loaddashboard', compact

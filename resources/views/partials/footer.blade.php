@@ -2,7 +2,7 @@
    
         <div class="col-lg-6">
             <div class="copyright text-center  text-lg-left  text-muted">
-                &copy; 2021 <a href="https://supsofttech.com/" class="font-weight-bold ml-1" target="_blank">Sup-Soft</a>
+                &copy; 2023 <a href="/" class="font-weight-bold ml-1" target="_blank">{{ trans('panel.site_title') }}</a>
             </div>
         </div>
 

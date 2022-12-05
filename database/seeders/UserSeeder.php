@@ -4,6 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\User;
+use App\Models\Type;
+use App\Models\Unit;
+use App\Models\Item;
 
 class UserSeeder extends Seeder
 {
@@ -17,20 +20,82 @@ class UserSeeder extends Seeder
         $users = [
             [
                 'id'             => 1,
-                'name'           => 'Sample Manager',
-                'email'          => 'manager@manager.com',
-                'password'       => '$2y$10$zPiaTbYwkxYcejFmEimhWedeAogTJvEb/yGmBVx390ihhPFy8r896',
-                'remember_token' => null,
-            ],
-            [
-                'id'             => 2,
-                'name'           => 'Sample Cashier',
-                'email'          => 'cashier@cashier.com',
+                'name'           => 'ADMIN',
+                'email'          => 'admin@admin.com',
                 'password'       => '$2y$10$zPiaTbYwkxYcejFmEimhWedeAogTJvEb/yGmBVx390ihhPFy8r896',
                 'remember_token' => null,
             ],
         ];
+        $types = [
+            [
+                'title'           => 'Paper',
+                'created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date("Y-m-d H:i:s"),
+            ],
+            [
+                'title'           => 'Bottle Glass',
+                'created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date("Y-m-d H:i:s"),
+            ],
+            [
+                'title'           => 'Aluminum',
+                'created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date("Y-m-d H:i:s"),
+            ],
+        ];
+
+
+        $units = [
+            [
+                'title'           => 'Kgs',
+                'created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date("Y-m-d H:i:s"),
+            ],
+            [
+                'title'           => 'Pcs',
+                'created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date("Y-m-d H:i:s"),
+            ],
+            [
+                'title'           => 'G',
+                'created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date("Y-m-d H:i:s"),
+            ],
+        ];
+
+        $items = [
+            [
+                'title'             => 'Magazine',
+                'type_id'           => '1',
+                'price'             => 10,
+                'unit_id'           => '1',
+                'description'       => 'TEST ITEM',
+                'created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date("Y-m-d H:i:s"),
+            ],
+            [
+                'title'             => 'Tuanduay',
+                'type_id'           => '2',
+                'price'             => 2,
+                'unit_id'           => '2',
+                'description'       => 'TEST ITEM',
+                'created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date("Y-m-d H:i:s"),
+            ],
+            [
+                'title'             => 'Aluminum',
+                'type_id'           => '3',
+                'price'             => 100,
+                'unit_id'           => '3',
+                'description'       => 'TEST ITEM',
+                'created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date("Y-m-d H:i:s"),
+            ],
+        ];
 
         User::insert($users);
+        Type::insert($types);
+        Unit::insert($units);
+        Item::insert($items);
     }
 }
