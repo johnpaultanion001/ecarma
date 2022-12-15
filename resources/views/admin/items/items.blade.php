@@ -25,8 +25,8 @@
       </div>
       <div class="col text-right">
         <button type="button" id="create_record" class="text-uppercase create_record btn btn-sm btn-primary">New Item</button>
-        <button type="button"  class="text-uppercase btn btn-sm btn-success btn_manage" manage="types">Manage Types</button>
-        <button type="button"  class="text-uppercase btn btn-sm btn-dark btn_manage" manage="units">Manage Unit</button>
+        <a href="/admin/items/manages/types" target="_black" class="text-uppercase btn btn-sm btn-success">Manage Types</a>
+        <a href="/admin/items/manages/units" target="_black" class="text-uppercase btn btn-sm btn-info">Manage Units</a>
       </div>
     </div>
   </div>

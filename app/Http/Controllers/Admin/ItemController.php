@@ -92,48 +92,73 @@ class ItemController extends Controller
         $item->delete();
         return response()->json(['success' => 'Item Removed Successfully.']);
     }
+    //MANAGE TYPES AND UNITS
 
-    public function manage($manage)
+    public function manage_index($manage_type)
     {
-        if($manage == 'types'){
-            $types = Type::orderBy('title','asc')->get();
-            return response()->json(['results' => $types]);
+        if($manage_type == 'types'){
+            $manages = Type::orderBy('title','asc')->get();
         }else{
-            $units = Unit::orderBy('title','asc')->get();
-            return response()->json(['results' => $units]);
+            $manages = Unit::orderBy('title','asc')->get();
         }
+        return view('admin.items.manage_types_units', compact('manages','manage_type'));
     }
-    public function manage_update(Request $request, $manage)
+    public function manage_update(Request $request, $manage_type)
     {
-        if($manage == 'types'){
-            Type::whereNotIn('title', $request->input('title'))->delete();
-            foreach($request->input('title') as $title )
-            {
-               Type::updateOrCreate(
-                            [
-                                'title'               => $title,
-                            ],
-                            [
-                                'title'               => $title,
-                            ]
-                        );
-            }
+        $validated =  Validator::make($request->all(), [
+            'title' => ['required'],
+        ]);
+
+        if ($validated->fails()) {
+            return response()->json(['errors' => $validated->errors()]);
+        }
+
+        if($manage_type == 'types'){
+            Type::updateOrCreate(
+                [
+                    'id'               => $request->input('id') ?? '0',
+                ],
+                [
+                    'title'               => $request->input('title'),
+                ]
+            );
         }else{
-            Unit::whereNotIn('title', $request->input('title'))->delete();
-            foreach($request->input('title') as $title )
-            {
-                Unit::updateOrCreate(
-                    [
-                        'title'               => $title,
-                    ],
-                    [
-                        'title'               => $title,
-                    ]
-                );
-            }
+            Unit::updateOrCreate(
+                [
+                    'id'               => $request->input('id') ?? '0',
+                ],
+                [
+                    'title'               => $request->input('title'),
+                ]
+            );
         }
          return response()->json(['success' => 'Successfully Updated.']);
     }
+
+    public function manage_edit($manage_type,$id)
+    {
+        if($manage_type == 'types'){
+            $manages = Type::where('id',$id)->first();
+            return response()->json(['result' => $manages]);
+        }else{
+            $manages = Unit::where('id',$id)->first();
+            return response()->json(['result' => $manages]);
+        }
+    }
+    public function manage_destroy($manage_type,$id)
+    {
+        if($manage_type == 'types'){
+            $manages = Type::where('id',$id)->first();
+            $manages->delete();
+        }else{
+            $manages = Unit::where('id',$id)->first();
+            $manages->delete();
+        }
+       
+        return response()->json(['success' => 'Removed Successfully.']);
+    }
+
+    
 
 
     

@@ -24,7 +24,7 @@
               </li>
            
               <li class="nav-item">
-                <a class="nav-link {{ request()->is('admin/items') || request()->is('admin/items/*') ? 'active' : '' }}" href="{{ route("admin.items.index") }}">
+                <a class="nav-link {{ request()->is('admin/items') ? 'active' : '' }}" href="{{ route("admin.items.index") }}">
                   <i class="ni ni-bullet-list-67"></i>
                   <span class="nav-link-text text-uppercase">Items</span>
                 </a>
@@ -37,13 +37,13 @@
             </h6>
             <ul class="navbar-nav mb-md-3">
                 <li class="nav-item">
-                  <a class="nav-link {{ request()->is('admin/sellers') || request()->is('admin/sellers/*') ? 'active' : '' }}" href="{{ route("admin.items.index") }}">
+                  <a class="nav-link {{ request()->is('admin/sellers') || request()->is('admin/sellers/*') ? 'active' : '' }}" href="{{ route("admin.sellers.index") }}">
                     <i class="ni ni-user-run text-pink "></i>
                     <span class="nav-link-text text-uppercase">Walk-in Sellers</span>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link {{ request()->is('admin/buyers') || request()->is('admin/buyers/*') ? 'active' : '' }}" href="{{ route("admin.items.index") }}">
+                  <a class="nav-link {{ request()->is('admin/buyers') || request()->is('admin/buyers/*') ? 'active' : '' }}" href="{{ route("admin.buyers.index") }}">
                     <i class="ni ni-building text-pink "></i>
                     <span class="nav-link-text text-uppercase">Company Buyers</span>
                   </a>
@@ -88,8 +88,19 @@
                     <span class="nav-link-text text-uppercase">Expenses</span>
                   </a>
                 </li>
+                <li class="nav-item">
+                  <a class="nav-link {{ request()->is('admin/items/manages/types') || request()->is('admin/items/manages/types') ? 'active' : '' }}" href="/admin/items/manages/types">
+                    <i class="ni ni-bullet-list-67 text-success"></i>
+                    <span class="nav-link-text text-uppercase">Manage Types</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link {{ request()->is('admin/items/manages/units') || request()->is('admin/items/manages/units') ? 'active' : '' }}" href="/admin/items/manages/units">
+                    <i class="ni ni-bullet-list-67 text-success"></i>
+                    <span class="nav-link-text text-uppercase">Manage Units</span>
+                  </a>
+                </li>
             </ul>
-
         </div>
 
       </div>

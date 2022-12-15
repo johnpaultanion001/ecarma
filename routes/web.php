@@ -24,9 +24,18 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
     // ITEMS
     Route::resource('items', 'ItemController');
-    route::get('items/manages/{manage}', 'ItemController@manage')->name('items.manage');
-    route::post('items/manages/{manage}', 'ItemController@manage_update')->name('items.manage_update');
 
+    // Manages
+    route::get('items/manages/{manage_type}', 'ItemController@manage_index')->name('items.manage_index');
+    route::post('items/manages/{manage_type}', 'ItemController@manage_update')->name('items.manage_update');
+    route::get('items/manages/{manage_type}/{id}', 'ItemController@manage_edit')->name('items.manage_edit');
+    route::get('items/manages_delete/{manage_type}/{id}', 'ItemController@manage_destroy')->name('items.manage_destroy');
+
+    // SELLER
+    Route::resource('sellers', 'SellerController');
+
+    // BUYER
+    Route::resource('buyers', 'BuyerController');
 
     //USER
     Route::resource('users', 'UsersController');
