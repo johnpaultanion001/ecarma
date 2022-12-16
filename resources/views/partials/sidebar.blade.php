@@ -38,7 +38,8 @@
             <ul class="navbar-nav mb-md-3">
                 <li class="nav-item">
                   <a class="nav-link {{ request()->is('admin/sellers') || request()->is('admin/sellers/*') ? 'active' : '' }}" href="{{ route("admin.sellers.index") }}">
-                    <i class="ni ni-user-run text-pink "></i>
+                    
+                    <i class="ni ni-bullet-list-67 text-pink"></i>
                     <span class="nav-link-text text-uppercase">Walk-in Sellers</span>
                   </a>
                 </li>
@@ -57,13 +58,19 @@
             </h6>
             <ul class="navbar-nav mb-md-3">
                 <li class="nav-item">
-                  <a class="nav-link {{ request()->is('admin/buyings') || request()->is('admin/buyings/*') ? 'active' : '' }}" href="{{ route("admin.items.index") }}">
-                    <i class="ni ni-user-run text-info "></i>
+                  <a class="nav-link {{ request()->is('admin/transactions') || request()->is('admin/transactions/*') ? 'active' : '' }}" href="/admin/transactions">
+                     <i class="ni ni-bullet-list-67 text-info"></i>
+                    <span class="nav-link-text text-uppercase">TRANSACTIONS</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link {{ request()->is('admin/buyings')  || request()->is('admin/buyings/*') ? 'active' : '' }}" href="/admin/buyings/0/buy">
+                   <i class="ni ni-bullet-list-67 text-info"></i>
                     <span class="nav-link-text text-uppercase">buyings</span>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link {{ request()->is('admin/sellings') || request()->is('admin/sellings/*') ? 'active' : '' }}" href="{{ route("admin.items.index") }}">
+                  <a class="nav-link {{ request()->is('admin/sellings') || request()->is('admin/sellings/*') ? 'active' : '' }}" href="/admin/sellings/0/buy">
                     <i class="ni ni-building text-info "></i>
                     <span class="nav-link-text text-uppercase">Sellings</span>
                   </a>
@@ -77,15 +84,21 @@
             </h6>
             <ul class="navbar-nav mb-md-3">
                 <li class="nav-item">
-                  <a class="nav-link {{ request()->is('admin/inventory') || request()->is('admin/inventory/*') ? 'active' : '' }}" href="{{ route("admin.items.index") }}">
+                  <a class="nav-link {{ request()->is('admin/inventories') || request()->is('admin/inventories/*') ? 'active' : '' }}" href="/admin/inventories"> 
                     <i class="ni ni-user-run text-success"></i>
-                    <span class="nav-link-text text-uppercase">Inventory</span>
+                    <span class="nav-link-text text-uppercase">Inventories</span>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link {{ request()->is('admin/expenses') || request()->is('admin/expenses/*') ? 'active' : '' }}" href="{{ route("admin.items.index") }}">
+                  <a class="nav-link {{ request()->is('admin/buying/expenses') ? 'active' : '' }}" href="/admin/buying/expenses">
                     <i class="ni ni-building text-success"></i>
                     <span class="nav-link-text text-uppercase">Expenses</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link {{ request()->is('admin/selling/income') ? 'active' : '' }}" href="/admin/selling/income">
+                    <i class="ni ni-building text-success"></i>
+                    <span class="nav-link-text text-uppercase">Income</span>
                   </a>
                 </li>
                 <li class="nav-item">

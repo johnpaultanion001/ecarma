@@ -16,6 +16,7 @@ class Item extends Model
         'price',
         'unit_id',
         'description',
+        'stock',
     ];
 
     public function type()

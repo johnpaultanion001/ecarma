@@ -25,6 +25,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // ITEMS
     Route::resource('items', 'ItemController');
 
+    // INVENTORIES
+    route::get('inventories', 'ItemController@inventories')->name('items.inventories');
+
+
     // Manages
     route::get('items/manages/{manage_type}', 'ItemController@manage_index')->name('items.manage_index');
     route::post('items/manages/{manage_type}', 'ItemController@manage_update')->name('items.manage_update');
@@ -33,6 +37,32 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
     // SELLER
     Route::resource('sellers', 'SellerController');
+
+    
+
+    // Transaction
+    route::get('transactions', 'TransactionController@index')->name('transaction.index');
+    route::delete('transactions/{transaction}', 'TransactionController@void')->name('transaction.void');
+
+    // BUYINGS
+    route::get('buyings/{transaction_id}/buy', 'BuyingController@index')->name('buyings.index');
+    route::post('buyings/store', 'BuyingController@store')->name('buyings.store');
+    route::get('buyings/{buying}/edit', 'BuyingController@edit')->name('buyings.edit');
+    route::put('buyings/{buying}', 'BuyingController@update')->name('buyings.update');
+    route::delete('buyings/{buying}', 'BuyingController@destroy')->name('buyings.destroy');
+    route::get('buyings/saveTransaction', 'BuyingController@saveTransaction')->name('buyings.saveTransaction');
+    route::get('buying/expenses', 'BuyingController@expenses')->name('buyings.expenses');
+
+
+     // SELLINGS
+     route::get('sellings/{transaction_id}/buy', 'SellingController@index')->name('sellings.index');
+     route::post('sellings/store', 'SellingController@store')->name('sellings.store');
+     route::get('sellings/{selling}/edit', 'SellingController@edit')->name('sellings.edit');
+     route::put('sellings/{selling}', 'SellingController@update')->name('sellings.update');
+     route::delete('sellings/{selling}', 'SellingController@destroy')->name('sellings.destroy');
+     route::get('sellings/saveTransaction', 'SellingController@saveTransaction')->name('sellings.saveTransaction');
+     route::get('selling/income', 'SellingController@income')->name('sellings.income');
+    
 
     // BUYER
     Route::resource('buyers', 'BuyerController');

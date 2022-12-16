@@ -20,6 +20,7 @@ class CreateItemsTable extends Migration
             $table->float('price');
             $table->string('unit_id');
             $table->longText('description')->nullable();
+            $table->float('stock')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

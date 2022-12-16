@@ -19,7 +19,7 @@ class Selling extends Model
         'status',
     ];
 
-    public function seller()
+    public function buyer()
     {
         return $this->belongsTo(Buyer::class, 'buyer_id');
     }

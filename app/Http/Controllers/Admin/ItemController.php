@@ -19,6 +19,12 @@ class ItemController extends Controller
         $units = Unit::orderBy('title','asc')->get();
         return view('admin.items.items', compact('items','types','units'));
     }
+    public function inventories()
+    {
+        $items = Item::orderBy('title','asc')->get();
+        return view('admin.inventories.inventories', compact('items'));
+    }
+    
 
    
     public function create()

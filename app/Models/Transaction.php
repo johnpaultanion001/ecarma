@@ -10,7 +10,7 @@ class Transaction extends Model
     use HasFactory;
 
     protected $fillable = [
-        'type_of_trasaction',
+        'type_of_transaction',
     ];
 
     public function sellings()

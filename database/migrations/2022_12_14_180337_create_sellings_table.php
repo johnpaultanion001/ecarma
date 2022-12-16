@@ -15,7 +15,7 @@ class CreateSellingsTable extends Migration
     {
         Schema::create('sellings', function (Blueprint $table) {
             $table->id();
-            $table->string('transaction_id');
+            $table->string('transaction_id')->nullable();
             $table->string('buyer_id');
             $table->string('item_id');
             $table->float('qty');

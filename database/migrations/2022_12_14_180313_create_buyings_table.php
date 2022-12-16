@@ -15,7 +15,7 @@ class CreateBuyingsTable extends Migration
     {
         Schema::create('buyings', function (Blueprint $table) {
             $table->id();
-            $table->string('transaction_id');
+            $table->string('transaction_id')->nullable();
             $table->string('seller_id');
             $table->string('item_id');
             $table->float('qty');
