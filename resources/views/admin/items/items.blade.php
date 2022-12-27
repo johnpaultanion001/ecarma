@@ -38,7 +38,8 @@
           <th>Actions</th>
           <th>Title</th>
           <th>Type</th>
-          <th>Price</th>
+          <th>Buying Price</th>
+          <th>Selling Price</th>
           <th>Unit</th>
           <th>Description</th>
           <th>Created At</th>
@@ -59,7 +60,10 @@
                       {{  $item->type->title ?? '' }}
                   </td>
                   <td>
-                      {{  number_format($item->price , 2, '.', ',') }}
+                      {{  number_format($item->buying_price , 2, '.', ',') }}
+                  </td>
+                  <td>
+                      {{  number_format($item->selling_price , 2, '.', ',') }}
                   </td>
                   <td>
                       {{  $item->unit->title ?? '' }}
@@ -119,10 +123,19 @@
 
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label class="control-label text-uppercase" >Price:<span class="text-danger">*</span></label>
-                            <input type="number" name="price" id="price" class="form-control" step="any"/>
+                            <label class="control-label text-uppercase" >Buying Price:<span class="text-danger">*</span></label>
+                            <input type="number" name="buying_price" id="buying_price" class="form-control" step="any"/>
                             <span class="invalid-feedback" role="alert">
-                                <strong id="error-price"></strong>
+                                <strong id="error-buying_price"></strong>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="control-label text-uppercase" >Selling Price:<span class="text-danger">*</span></label>
+                            <input type="number" name="selling_price" id="selling_price" class="form-control" step="any"/>
+                            <span class="invalid-feedback" role="alert">
+                                <strong id="error-selling_price"></strong>
                             </span>
                         </div>
                     </div>
@@ -164,51 +177,6 @@
     </div>
 </form>
 
-<form method="post" id="myManage" class="form-horizontal">
-    @csrf
-    <div class="modal" id="manageModal" data-keyboard="false" data-backdrop="static">
-        <div class="modal-dialog modal-lg modal-dialog-centered ">
-            <div class="modal-content">
-        
-                <!-- Modal Header -->
-                <div class="modal-header bg-primary">
-                    <p class="modal-title text-white text-uppercase font-weight-bold">Modal Heading</p>
-                    <button type="button" class="close text-white" data-dismiss="modal">&times;</button>
-                </div>
-                <!-- Modal body -->
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label class="control-label text-uppercase" >Title <span class="text-danger">*</span></label>
-                                    <div id="section_manage" style="height:400px; overflow-y: auto; overflow-x: hidden;">
-                                        <div class="parentContainer mt-2">
-                                            <div class="row childrenContainer">
-                                                <div class="col-8">
-                                                    <input type="text"  name="title[]" class="form-control" required/>
-                                                </div>
-                                                <div class="col-4">
-                                                        <button type="button" name="addParent" id="addParent" class="addParent btn btn-success">            
-                                                            <i class="fas fa-plus-circle"></i>        
-                                                        </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        
-                <!-- Modal footer -->
-                <div class="modal-footer bg-white d-flex justify-content-between">
-                    <button type="button" class="btn btn-white text-uppercase" data-dismiss="modal">Close</button>
-                    <input type="submit" name="action_button_manage" id="action_button_manage" class="text-uppercase btn btn-default" value="Save" />
-                </div>
-            </div>
-        </div>
-    </div>
-</form>
 @endsection
 
 @section('script')

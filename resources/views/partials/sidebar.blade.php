@@ -90,15 +90,21 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link {{ request()->is('admin/buying/expenses') ? 'active' : '' }}" href="/admin/buying/expenses">
+                  <a class="nav-link {{ request()->is('admin/buying/expenses/*') ? 'active' : '' }}" href="/admin/buying/expenses/all/all/all">
                     <i class="ni ni-building text-success"></i>
                     <span class="nav-link-text text-uppercase">Expenses</span>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link {{ request()->is('admin/selling/income') ? 'active' : '' }}" href="/admin/selling/income">
+                  <a class="nav-link {{ request()->is('admin/selling/income/*') ? 'active' : '' }}" href="/admin/selling/income/all/all/all">
                     <i class="ni ni-building text-success"></i>
                     <span class="nav-link-text text-uppercase">Income</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link {{ request()->is('admin/net_profit/*') ? 'active' : '' }}" href="/admin/net_profit/all/all/all">
+                    <i class="ni ni-building text-success"></i>
+                    <span class="nav-link-text text-uppercase">Net Profit</span>
                   </a>
                 </li>
                 <li class="nav-item">

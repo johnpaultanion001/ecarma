@@ -51,7 +51,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     route::put('buyings/{buying}', 'BuyingController@update')->name('buyings.update');
     route::delete('buyings/{buying}', 'BuyingController@destroy')->name('buyings.destroy');
     route::get('buyings/saveTransaction', 'BuyingController@saveTransaction')->name('buyings.saveTransaction');
-    route::get('buying/expenses', 'BuyingController@expenses')->name('buyings.expenses');
+    route::get('buying/expenses/{filter}/{df}/{dt}', 'BuyingController@expenses')->name('buyings.expenses');
 
 
      // SELLINGS
@@ -61,7 +61,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
      route::put('sellings/{selling}', 'SellingController@update')->name('sellings.update');
      route::delete('sellings/{selling}', 'SellingController@destroy')->name('sellings.destroy');
      route::get('sellings/saveTransaction', 'SellingController@saveTransaction')->name('sellings.saveTransaction');
-     route::get('selling/income', 'SellingController@income')->name('sellings.income');
+     route::get('selling/income/{filter}/{df}/{dt}', 'SellingController@income')->name('sellings.income');
     
 
     // BUYER
@@ -72,4 +72,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     route::get('loadusers', 'UsersController@load')->name('users.load');
     route::get('user/{user}', 'UsersController@usershow')->name('user.usershow');
     route::put('user/{user}', 'UsersController@userupdate')->name('user.userupdate');
+
+    // NET PROFIT
+    Route::get('net_profit/{filter}/{df}/{dt}', 'TransactionController@net_profit')->name('net_profit.index');
 });

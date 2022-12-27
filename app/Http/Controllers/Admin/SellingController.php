@@ -26,12 +26,16 @@ class SellingController extends Controller
         
     }
 
-    public function income()
+    public function income($filter, $df, $dt)
     {
-     
-        $sellings = Selling::where('status','APPROVED')->latest()->get();
+        if($filter == 'fbd'){
+            $sellings = Selling::where('status','APPROVED')->whereBetween('created_at', [$df, $dt])->latest()->get();
+        }else{
+            $sellings = Selling::where('status','APPROVED')->latest()->get();
+        }
         
-        return view('admin.sellings.income', compact('sellings'));
+        
+        return view('admin.sellings.income', compact('sellings','df','dt'));
         
     }
 
@@ -48,12 +52,12 @@ class SellingController extends Controller
             return response()->json(['errors' => $validated->errors()]);
         }
         $item = Item::where('id', $request->input('item_id'))->first();
-        $amount = $request->input('qty') * $item->price;
+        $amount = $request->input('qty') * $item->selling_price;
         Selling::create([
             'item_id' => $request->input('item_id'),
             'buyer_id' => $request->input('buyer_id'),
             'qty' => $request->input('qty'),
-            'price'  => $item->price,
+            'price'  => $item->selling_price,
             'amount'    => $amount,
         ]);
 

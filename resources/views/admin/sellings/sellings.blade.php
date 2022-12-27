@@ -42,7 +42,7 @@
           <th>ITEM NAME</th>
           <th>QTY</th>
           <th>UNIT</th>
-          <th>BUYING PRICE</th>
+          <th>SELLING PRICE</th>
           <th>AMOUNT</th>
           <th>Created At</th>
           

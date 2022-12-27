@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Transaction;
 use App\Models\Item;
+use App\Models\Selling;
+use App\Models\Buying;
 
 class TransactionController extends Controller
 {
@@ -35,6 +37,21 @@ class TransactionController extends Controller
        
         return response()->json(['success' => 'Transaction successfully void.']);
         
+    }
+
+    public function net_profit($filter, $df, $dt){
+        if($filter == 'fbd'){
+            $buying = Buying::where('status','APPROVED')->whereBetween('created_at', [$df, $dt])->sum('amount');
+            $selling = Selling::where('status','APPROVED')->whereBetween('created_at', [$df, $dt])->sum('amount');
+        }else{
+           $buying = Buying::where('status','APPROVED')->sum('amount');
+           $selling = Selling::where('status','APPROVED')->sum('amount');
+           
+        }
+        $total = $selling - $buying;
+
+        return view('admin.net_profit.net_profit', compact('buying','selling', 'total', 'df','dt'));
+
     }
     
 }

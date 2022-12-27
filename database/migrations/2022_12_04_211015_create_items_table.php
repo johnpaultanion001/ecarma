@@ -17,7 +17,8 @@ class CreateItemsTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('type_id');
-            $table->float('price');
+            $table->float('selling_price');
+            $table->float('buying_price');
             $table->string('unit_id');
             $table->longText('description')->nullable();
             $table->float('stock')->default(0);

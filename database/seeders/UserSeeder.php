@@ -67,7 +67,8 @@ class UserSeeder extends Seeder
             [
                 'title'             => 'Magazine',
                 'type_id'           => '1',
-                'price'             => 10,
+                'buying_price'             => 10,
+                'selling_price'             => 15,
                 'unit_id'           => '1',
                 'description'       => 'TEST ITEM',
                 'created_at' => date("Y-m-d H:i:s"),
@@ -76,7 +77,8 @@ class UserSeeder extends Seeder
             [
                 'title'             => 'Tuanduay',
                 'type_id'           => '2',
-                'price'             => 2,
+                'buying_price'             => 2,
+                'selling_price'             => 5,
                 'unit_id'           => '2',
                 'description'       => 'TEST ITEM',
                 'created_at' => date("Y-m-d H:i:s"),
@@ -85,7 +87,8 @@ class UserSeeder extends Seeder
             [
                 'title'             => 'Aluminum',
                 'type_id'           => '3',
-                'price'             => 100,
+                'buying_price'             => 100,
+                'selling_price'             => 105,
                 'unit_id'           => '3',
                 'description'       => 'TEST ITEM',
                 'created_at' => date("Y-m-d H:i:s"),

@@ -38,7 +38,8 @@ class ItemController extends Controller
         $validated =  Validator::make($request->all(), [
             'title' => ['required'],
             'type_id' => ['required'],
-            'price' => ['required' ,'numeric','min:0'],
+            'buying_price' => ['required' ,'numeric','min:0'],
+            'selling_price' => ['required' ,'numeric','min:0'],
             'unit_id' => ['required'],
             'description' => ['nullable'],
            
@@ -51,7 +52,8 @@ class ItemController extends Controller
         Item::create([
             'title' => $request->input('title'),
             'type_id' => $request->input('type_id'),
-            'price' => $request->input('price'),
+            'buying_price' => $request->input('buying_price'),
+            'selling_price' => $request->input('selling_price'),
             'unit_id' => $request->input('unit_id'),
             'description' => $request->input('description'),
         ]);
@@ -72,7 +74,8 @@ class ItemController extends Controller
         $validated =  Validator::make($request->all(), [
             'title' => ['required'],
             'type_id' => ['required'],
-            'price' => ['required' ,'numeric','min:0'],
+            'buying_price' => ['required' ,'numeric','min:0'],
+            'selling_price' => ['required' ,'numeric','min:0'],
             'unit_id' => ['required'],
             'description' => ['nullable'],
            
@@ -85,7 +88,8 @@ class ItemController extends Controller
         $item->update([
             'title' => $request->input('title'),
             'type_id' => $request->input('type_id'),
-            'price' => $request->input('price'),
+            'buying_price' => $request->input('buying_price'),
+            'selling_price' => $request->input('selling_price'),
             'unit_id' => $request->input('unit_id'),
             'description' => $request->input('description'),
         ]);

@@ -27,12 +27,15 @@ class BuyingController extends Controller
         
     }
 
-    public function expenses()
+    public function expenses($filter, $df, $dt)
     {
-     
-        $buyings = Buying::where('status','APPROVED')->latest()->get();
+        if($filter == 'fbd'){
+            $buyings = Buying::where('status','APPROVED')->whereBetween('created_at', [$df, $dt])->latest()->get();
+        }else{
+            $buyings = Buying::where('status','APPROVED')->latest()->get();
+        }
         
-        return view('admin.buyings.expenses', compact('buyings'));
+        return view('admin.buyings.expenses', compact('buyings','df','dt'));
         
     }
 
@@ -51,12 +54,12 @@ class BuyingController extends Controller
             return response()->json(['errors' => $validated->errors()]);
         }
         $item = Item::where('id', $request->input('item_id'))->first();
-        $amount = $request->input('qty') * $item->price;
+        $amount = $request->input('qty') * $item->buying_price;
         Buying::create([
             'item_id' => $request->input('item_id'),
             'seller_id' => $request->input('seller_id'),
             'qty' => $request->input('qty'),
-            'price'  => $item->price,
+            'price'  => $item->buying_price,
             'amount'    => $amount,
         ]);
 
@@ -82,12 +85,12 @@ class BuyingController extends Controller
             return response()->json(['errors' => $validated->errors()]);
         }
         $item = Item::where('id', $request->input('item_id'))->first();
-        $amount = $request->input('qty') * $item->price;
+        $amount = $request->input('qty') * $item->buying_price;
         $buying->update([
             'item_id' => $request->input('item_id'),
             'seller_id' => $request->input('seller_id'),
             'qty' => $request->input('qty'),
-            'price'  => $item->price,
+            'price'  => $item->buying_price,
             'amount'    => $amount,
         ]);
 
