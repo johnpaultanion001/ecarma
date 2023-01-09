@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Transaction;
 use App\Models\Item;
+use App\Models\Type;
 use App\Models\Selling;
 use App\Models\Buying;
 
@@ -39,18 +40,30 @@ class TransactionController extends Controller
         
     }
 
-    public function net_profit($filter, $df, $dt){
+    public function net_profit($filter, $df, $dt, $type){
         if($filter == 'fbd'){
-            $buying = Buying::where('status','APPROVED')->whereBetween('created_at', [$df, $dt])->sum('amount');
-            $selling = Selling::where('status','APPROVED')->whereBetween('created_at', [$df, $dt])->sum('amount');
+            if($type == 'all'){
+                $buying = Buying::where('status','APPROVED')->sum('amount');
+                $selling = Selling::where('status','APPROVED')->sum('amount');
+            }else{
+                $buying = Buying::where('type_id', $type)->where('status','APPROVED')->whereBetween('created_at', [$df, $dt])->sum('amount');
+                $selling = Selling::where('type_id', $type)->where('status','APPROVED')->whereBetween('created_at', [$df, $dt])->sum('amount');
+            }
+            
         }else{
-           $buying = Buying::where('status','APPROVED')->sum('amount');
-           $selling = Selling::where('status','APPROVED')->sum('amount');
-           
+            if($type == 'all'){
+                $buying = Buying::where('status','APPROVED')->sum('amount');
+                $selling = Selling::where('status','APPROVED')->sum('amount');
+            }else{
+                $buying = Buying::where('type_id', $type)->where('status','APPROVED')->whereBetween('created_at', [$df, $dt])->sum('amount');
+                $selling = Selling::where('type_id', $type)->where('status','APPROVED')->whereBetween('created_at', [$df, $dt])->sum('amount');
+            }
         }
         $total = $selling - $buying;
+        $types = Type::orderBy('title','asc')->get();
+        $item_type = Type::where('id',$type)->first();
 
-        return view('admin.net_profit.net_profit', compact('buying','selling', 'total', 'df','dt'));
+        return view('admin.net_profit.net_profit', compact('buying','selling', 'total', 'df','dt','types','item_type'));
 
     }
     

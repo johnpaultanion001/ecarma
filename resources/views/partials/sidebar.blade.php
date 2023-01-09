@@ -102,7 +102,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link {{ request()->is('admin/net_profit/*') ? 'active' : '' }}" href="/admin/net_profit/all/all/all">
+                  <a class="nav-link {{ request()->is('admin/net_profit/*') ? 'active' : '' }}" href="/admin/net_profit/all/all/all/all">
                     <i class="ni ni-building text-success"></i>
                     <span class="nav-link-text text-uppercase">Net Profit</span>
                   </a>

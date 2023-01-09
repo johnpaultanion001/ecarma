@@ -13,6 +13,7 @@ class Selling extends Model
         'trasaction_id',
         'buyer_id',
         'item_id',
+        'type_id',
         'qty',
         'price',
         'amount',

@@ -55,6 +55,7 @@ class SellingController extends Controller
         $amount = $request->input('qty') * $item->selling_price;
         Selling::create([
             'item_id' => $request->input('item_id'),
+            'type_id' => $item->type_id,
             'buyer_id' => $request->input('buyer_id'),
             'qty' => $request->input('qty'),
             'price'  => $item->selling_price,
@@ -87,6 +88,7 @@ class SellingController extends Controller
         $selling->update([
             'item_id' => $request->input('item_id'),
             'seller_id' => $request->input('seller_id'),
+            'type_id' => $item->type_id,
             'qty' => $request->input('qty'),
             'price'  => $item->price,
             'amount'    => $amount,

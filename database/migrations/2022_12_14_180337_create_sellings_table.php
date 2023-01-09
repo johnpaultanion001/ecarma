@@ -18,6 +18,7 @@ class CreateSellingsTable extends Migration
             $table->string('transaction_id')->nullable();
             $table->string('buyer_id');
             $table->string('item_id');
+            $table->string('type_id');
             $table->float('qty');
             $table->float('price');
             $table->float('amount');

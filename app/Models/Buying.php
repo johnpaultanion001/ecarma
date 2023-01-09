@@ -13,6 +13,7 @@ class Buying extends Model
         'transaction_id',
         'seller_id',
         'item_id',
+        'type_id',
         'qty',
         'price',
         'amount',

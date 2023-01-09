@@ -58,6 +58,7 @@ class BuyingController extends Controller
         Buying::create([
             'item_id' => $request->input('item_id'),
             'seller_id' => $request->input('seller_id'),
+            'type_id' => $item->type_id,
             'qty' => $request->input('qty'),
             'price'  => $item->buying_price,
             'amount'    => $amount,
@@ -89,6 +90,7 @@ class BuyingController extends Controller
         $buying->update([
             'item_id' => $request->input('item_id'),
             'seller_id' => $request->input('seller_id'),
+            'type_id' => $item->type_id,
             'qty' => $request->input('qty'),
             'price'  => $item->buying_price,
             'amount'    => $amount,

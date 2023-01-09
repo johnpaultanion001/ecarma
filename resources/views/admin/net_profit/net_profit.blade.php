@@ -25,6 +25,14 @@
       </div>
       <div class="col-8 mx-auto row">
         <div class="col">
+          <select name="type_id" id="type_id" class="form-control">
+            <option value="all">Filter by type</option>
+            @foreach($types as $type)
+              <option value="{{$type->id}}">{{$type->title}}</option>
+            @endforeach
+          </select>
+        </div>
+        <div class="col">
         <input type="date" id="df" class="form-control">
         </div>
         <div class="col">
@@ -88,10 +96,10 @@
               </tr>
               <tr>
                   <td>
-                      
+                    Item Type 
                   </td>
                   <td>
-                      
+                    {{$item_type->title ?? 'ALL'}}
                   </td>
                   <td>
                      
@@ -127,8 +135,9 @@
 $(document).on('click', '#submit', function(){
     var df = $('#df').val();
     var dt = $('#dt').val();
+    var type_id = $('#type_id').val();
     if(df !== '' && dt !== ''){
-      window.location.href = "/admin/net_profit/fbd/"+df+"/"+dt+"";
+      window.location.href = "/admin/net_profit/fbd/"+df+"/"+dt+"/"+type_id;
     }else{
       alert('Select a date')
     }
